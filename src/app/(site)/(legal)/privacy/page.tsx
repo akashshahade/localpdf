@@ -53,10 +53,10 @@ export default function PrivacyPage() {
 
       <h2>4. Usage statistics</h2>
       <p>
-        To understand which pages are visited and how the site performs, we use Vercel Analytics, Vercel Speed Insights
-        and Google Tag Manager (container <code>GTM-M2NQNG3N</code>), which may load Google Analytics. These tools
-        receive typical web request data such as page URL, browser type and approximate location. They never receive your
-        files, file names, file contents, passwords or anything you type into a tool.
+        To understand which pages are visited and how the site performs, we use Vercel Analytics, Vercel Speed Insights,
+        Umami Cloud, and Google Tag Manager (container <code>GTM-M2NQNG3N</code>), which may load Google Analytics. These
+        tools receive typical web request data such as page URL, browser type and approximate location. They never receive
+        your files, file names, file contents, passwords or anything you type into a tool.
       </p>
       <p>
         Google and Vercel may set cookies or similar storage for this measurement. You can block them with your browser
