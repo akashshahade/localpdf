@@ -7,7 +7,7 @@ export const site = {
   description:
     "Free PDF tools that run entirely in your browser. No upload, no sign-up, no watermark — your files never leave your device.",
   year: 2026,
-  legalUpdated: "11 November 2026",
+  legalUpdated: "12 November 2026",
   contactEmail: "hello@editlocalpdf.com",
 };
 

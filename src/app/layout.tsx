@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/controls";
 import { CommandPalette } from "@/components/shell/command-palette";
 import { ServiceWorkerRegistration } from "@/components/pwa";
+import { GoogleTag, GtmNoscript, SiteAnalytics } from "@/components/analytics";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -33,12 +34,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${GeistSans.variable} ${GeistMono.variable} h-full`}>
+      <head>
+        <GoogleTag />
+      </head>
       <body className="min-h-full">
+        <GtmNoscript />
         <TooltipProvider delayDuration={200}>
           {children}
           <CommandPalette />
         </TooltipProvider>
         <ServiceWorkerRegistration />
+        <SiteAnalytics />
         <Toaster
           position="bottom-right"
           toastOptions={{

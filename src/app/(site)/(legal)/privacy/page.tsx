@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy policy",
-  description: `${site.name} never uploads your files and collects no personal data.`,
+  description: `${site.name} never uploads your files. Analytics measure page views only, never your documents.`,
   alternates: { canonical: "/privacy" },
 };
 
@@ -14,12 +14,12 @@ export default function PrivacyPage() {
     <div className="legal">
       <LegalHeader
         title="Privacy policy"
-        lead={`The short version: ${site.name} never sees your files, and we don't collect, store or sell any personal data. Everything happens inside your browser, on your device.`}
+        lead={`The short version: ${site.name} never sees your files. Tools run on your device. We use analytics only to measure page visits, never documents.`}
       />
       <LegalSummary
         items={[
           { icon: CloudOff, title: "Files never uploaded", body: "Every tool runs on your device. Your documents are never sent to us or anyone else." },
-          { icon: EyeOff, title: "No tracking cookies", body: "No accounts, cookies, ads, analytics or cross-site tracking." },
+          { icon: EyeOff, title: "Files stay private", body: "Analytics never see your documents, file names or anything you type into a tool." },
           { icon: HardDrive, title: "Nothing saved", body: "We keep no copies, logs or history of your files. Close the tab and they're gone." },
         ]}
       />
@@ -38,10 +38,9 @@ export default function PrivacyPage() {
       <h2>2. What we don&apos;t collect</h2>
       <ul>
         <li>No accounts, sign-ups, names, email addresses or passwords.</li>
-        <li>No cookies for visitors.</li>
-        <li>No session recording, advertising or cross-site tracking.</li>
-        <li>No browser fingerprinting.</li>
-        <li>We don&apos;t sell or share data — we don&apos;t have any to sell.</li>
+        <li>No session recording or advertising networks.</li>
+        <li>No marketing profiles built from your documents.</li>
+        <li>We don&apos;t sell your files or tool inputs — they never reach us.</li>
       </ul>
 
       <h2>3. What happens when you visit</h2>
@@ -54,9 +53,14 @@ export default function PrivacyPage() {
 
       <h2>4. Usage statistics</h2>
       <p>
-        {site.name} currently uses <strong>no analytics</strong> and no tracking scripts. If we add a privacy-friendly
-        statistics service in the future, we&apos;ll name it here first. It would never receive your files, file names,
-        file contents, passwords or anything you type into a tool.
+        To understand which pages are visited and how the site performs, we use Vercel Analytics, Vercel Speed Insights
+        and Google Tag Manager (container <code>GTM-M2NQNG3N</code>), which may load Google Analytics. These tools
+        receive typical web request data such as page URL, browser type and approximate location. They never receive your
+        files, file names, file contents, passwords or anything you type into a tool.
+      </p>
+      <p>
+        Google and Vercel may set cookies or similar storage for this measurement. You can block them with your browser
+        settings or an ad/tracker blocker.
       </p>
 
       <h2>5. Future AI and OCR tools</h2>
