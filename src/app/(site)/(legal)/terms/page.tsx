@@ -51,9 +51,11 @@ export default function TermsPage() {
 
       <h2>2. Our website and content</h2>
       <p>
-        The {site.name} website, name, design, code and content belong to us. You may use the service freely, but please
-        don&apos;t copy, resell or republish it as your own. {site.name} also uses third-party software components,
-        each provided under its own license terms — see section 9.
+        The {site.name} website, name, design, code and content belong to us. You may use this website freely, but please
+        don&apos;t copy, resell or republish it as your own. The source code is available on GitHub under the PolyForm
+        Noncommercial License 1.0.0: personal and noncommercial use is allowed with credit; running it as a commercial
+        product or service needs a paid license from us. {site.name} also uses third-party software components, each
+        provided under its own license terms — see section 9.
       </p>
 
       <h2>3. Your files</h2>
