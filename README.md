@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/brand/github-banner.jpg" alt="LocalPDF — Free PDF tools. Zero uploads." width="100%" />
+  <img src="public/brand/github-banner.jpg?v=2" alt="LocalPDF — Free PDF tools. Zero uploads." width="100%" />
 </p>
 
 <h1 align="center">LocalPDF</h1>
