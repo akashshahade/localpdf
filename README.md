@@ -1,8 +1,59 @@
-# LocalPDF
+<p align="center">
+  <img src="public/brand/github-banner.jpg" alt="LocalPDF — Free PDF tools. Zero uploads." width="100%" />
+</p>
 
-Free in-browser PDF tools. Files never leave the device.
+<h1 align="center">LocalPDF</h1>
 
-Live site: [https://www.editlocalpdf.com](https://www.editlocalpdf.com)
+<p align="center">
+  <strong>Free PDF tools that run entirely in your browser.</strong><br />
+  No upload. No sign-up. No watermark. Your files never leave the device.
+</p>
+
+<p align="center">
+  <a href="https://www.editlocalpdf.com"><img src="https://img.shields.io/badge/Live%20site-editlocalpdf.com-FF4500?style=for-the-badge" alt="Live site" /></a>
+  &nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-0f172a?style=for-the-badge" alt="License" /></a>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs" alt="Next.js 16" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
+
+<p align="center">
+  <a href="https://www.editlocalpdf.com">Open the app</a>
+  ·
+  <a href="https://www.editlocalpdf.com/blog">Guides</a>
+  ·
+  <a href="#license">License</a>
+</p>
+
+---
+
+## Why LocalPDF
+
+Most free PDF sites upload your file to a server. LocalPDF does the work **in the tab** with pdf.js and pdf-lib. Close the tab and the document is gone. After the first visit it also works offline as a PWA.
+
+## What it does
+
+| Category | Examples |
+| --- | --- |
+| Organize | Merge, split, extract, rearrange, rotate, delete pages |
+| Optimize | Compress, repair, inspect |
+| Edit & sign | Text, signatures, stamps, forms |
+| Photo | Resize photos and signatures for exam / KYC / PAN forms |
+| Security | Passwords, redaction, integrity |
+| Convert | Images, Office, HTML, Markdown ⇄ PDF |
+
+50+ tools. One job per URL (`/merge-pdf`, `/compress-pdf`, …).
+
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS 4** + Radix UI
+- Client-side engines: pdf.js, pdf-lib, mammoth, docx
+- Hosted on **Vercel** · [editlocalpdf.com](https://www.editlocalpdf.com)
+
+## Run locally
 
 ```bash
 npm install
@@ -11,16 +62,32 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+Optional: copy `.env.example` and set `NEXT_PUBLIC_SITE_URL` for canonical URLs.
+
+```
+NEXT_PUBLIC_SITE_URL=https://www.editlocalpdf.com
+```
+
+## Using the site vs using the code
+
+| | |
+| --- | --- |
+| **editlocalpdf.com** | Free for everyone, including commercial work on *your* PDFs |
+| **This repository** | Source-available. Not MIT |
+
 ## License
 
-This project's source code is **not MIT**.
+[PolyForm Noncommercial License 1.0.0](LICENSE)
 
-It is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE):
+- Personal, hobby, research, and education: allowed (keep copyright + license)
+- Running this as a competing product, SaaS, or paid service: **needs a commercial license**
 
-- Personal, hobby, research, education, and other noncommercial use is allowed.
-- You must keep the copyright notice and license if you share the code.
-- You **may not** run this as a competing commercial product, SaaS, or paid service without a commercial license.
+Commercial license: [hello@editlocalpdf.com](mailto:hello@editlocalpdf.com)
 
-Using [editlocalpdf.com](https://www.editlocalpdf.com) as a visitor remains free.
+---
 
-For a commercial license, email [hello@editlocalpdf.com](mailto:hello@editlocalpdf.com).
+<p align="center">
+  Built by <a href="https://www.linkedin.com/in/akashshahade">Akash Shahade</a>
+  ·
+  <a href="https://www.editlocalpdf.com">editlocalpdf.com</a>
+</p>
