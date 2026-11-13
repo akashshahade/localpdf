@@ -51,7 +51,6 @@ Most free PDF sites upload your file to a server. LocalPDF does the work **in th
 - **Next.js 16** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS 4** + Radix UI
 - Client-side engines: pdf.js, pdf-lib, mammoth, docx
-- Hosted on **Vercel** · [editlocalpdf.com](https://www.editlocalpdf.com)
 
 ## Run locally
 
