@@ -1,9 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-export const GTM_ID = "GTM-M2NQNG3N";
-
-const UMAMI_WEBSITE_ID = "e0b41adf-3102-4fff-bde6-fd82fa4ce07d";
+const GTM_ID = "GTM-M2NQNG3N";
 
 export function GoogleTag() {
   return (
@@ -16,7 +14,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());`,
         }}
       />
-      <script defer src="https://cloud.umami.is/script.js" data-website-id={UMAMI_WEBSITE_ID} />
     </>
   );
 }

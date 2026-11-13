@@ -5,11 +5,11 @@ const isProd = process.env.NODE_ENV === "production";
 // PDF engines stay first-party. Analytics/GTM are the only third-party origins.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://cloud.umami.is",
+  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' blob: data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.google.co.in",
   "font-src 'self' data:",
-  "connect-src 'self' blob: data: https://www.google-analytics.com https://www.analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.googletagmanager.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://cloud.umami.is https://api-gateway.umami.dev",
+  "connect-src 'self' blob: data: https://www.google-analytics.com https://www.analytics.google.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.googletagmanager.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
   "worker-src 'self' blob:",
   "frame-src https://www.googletagmanager.com",
   "manifest-src 'self'",

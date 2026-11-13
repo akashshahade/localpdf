@@ -40,7 +40,6 @@ export default function AboutPage() {
             logo: absoluteUrl("/icon.svg"),
             email: site.contactEmail,
             description: site.description,
-            founder: { "@type": "Person", name: "Akash Shahade", sameAs: "https://www.linkedin.com/in/akashshahade" },
           },
         }}
       />
@@ -93,11 +92,7 @@ export default function AboutPage() {
         <div className="legal mt-10">
           <h2>Who built it</h2>
           <p>
-            {site.name} is developed by <strong>Akash Shahade</strong>. Connect on{" "}
-            <a href="https://www.linkedin.com/in/akashshahade" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-            .
+            {site.name} is an independent project. We don&apos;t publish personal profiles on this site.
           </p>
           <h2>Get in touch</h2>
           <p>

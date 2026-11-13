@@ -29,7 +29,7 @@ export default function SecurityPage() {
         <li>All processing runs inside your browser&apos;s sandbox, on your device.</li>
         <li>There is no server-side file processing, no document storage and no user database.</li>
         <li>The app is served over HTTPS from our own domain.</li>
-        <li>No advertising or session recording. Optional analytics (Vercel, Umami, and Google Tag Manager) measure page views only — never your files.</li>
+        <li>No advertising or session recording. Optional analytics measure page views only — never your files.</li>
         <li>Processing libraries ship with the app instead of loading from outside sources at runtime.</li>
       </ul>
 
