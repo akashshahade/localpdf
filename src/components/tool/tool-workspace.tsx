@@ -7,6 +7,7 @@ import { ArrowRight, Clock, FileText, RefreshCw, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dropzone } from "@/components/tool/dropzone";
 import { FileList } from "@/components/tool/file-list";
+import { EffectPreview, EFFECT_PREVIEW_SLUGS, previewThumbCount } from "@/components/tool/effect-preview";
 import { PageGrid, type Thumb } from "@/components/tool/page-grid";
 import { EditorCanvas } from "@/components/tool/editor-canvas";
 import { FormEditor, type FormField } from "@/components/tool/form-editor";
@@ -180,13 +181,20 @@ export function ToolWorkspace({ slug }: { slug: string }) {
     setFiles(nextFiles);
     setStage("configure");
 
-    if (firstChanged && tool.accept === "pdf" && !nextFiles[0].encrypted && tool.workspace !== "files") {
-      setPages(makePages(nextFiles[0].pages));
-      setThumbs(new Array(nextFiles[0].pages));
-      setSelected(new Set());
-      setEdits([]);
-      if (tool.workspace === "form") void readFields(nextFiles[0]);
-      void renderThumbs(nextFiles[0], nextFiles[0].pages);
+    if (firstChanged && tool.accept === "pdf" && !nextFiles[0].encrypted) {
+      const needPages = tool.workspace !== "files";
+      const needPreview = EFFECT_PREVIEW_SLUGS.has(tool.slug);
+      if (needPages || needPreview) {
+        if (needPages) {
+          setPages(makePages(nextFiles[0].pages));
+          setSelected(new Set());
+          setEdits([]);
+          if (tool.workspace === "form") void readFields(nextFiles[0]);
+        }
+        const n = needPages ? nextFiles[0].pages : previewThumbCount(tool.slug, nextFiles[0].pages);
+        setThumbs(new Array(n));
+        void renderThumbs(nextFiles[0], n);
+      }
     }
   };
 
@@ -336,9 +344,15 @@ export function ToolWorkspace({ slug }: { slug: string }) {
   }
 
   const wide = tool.workspace === "editor" && !tool.options?.length;
+  const filesMain = tool.workspace === "files" || tool.accept !== "pdf" || files[0]?.encrypted;
   const main =
-    tool.workspace === "files" || tool.accept !== "pdf" || files[0]?.encrypted ? (
-      <FileList files={files} multiple={tool.multiple} onReorder={(from, to) => setFiles((f) => move(f, from, to))} onRemove={removeFile} onAdd={() => addMoreRef.current?.click()} />
+    filesMain ? (
+      <div className="flex flex-col gap-4">
+        <FileList files={files} multiple={tool.multiple} onReorder={(from, to) => setFiles((f) => move(f, from, to))} onRemove={removeFile} onAdd={() => addMoreRef.current?.click()} />
+        {EFFECT_PREVIEW_SLUGS.has(tool.slug) && files[0] && !files[0].encrypted && (
+          <EffectPreview slug={tool.slug} thumbs={thumbs} pageCount={files[0].pages} values={values} />
+        )}
+      </div>
     ) : (
       <div className="flex flex-col gap-3">
         <FileChip file={files[0]} onReplace={() => addMoreRef.current?.click()} onRemove={reset}>
