@@ -46,6 +46,8 @@ Most free PDF sites upload your file to a server. LocalPDF does the work **in th
 
 50+ tools. One job per URL (`/merge-pdf`, `/compress-pdf`, …).
 
+https://github.com/user-attachments/assets/a17c71ed-387e-4f24-9df4-061ee5549085
+
 ## Stack
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript**
