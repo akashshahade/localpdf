@@ -17,6 +17,20 @@ export function SiteFooter() {
             <ShieldCheck className="size-3.5" />
             Files are processed in your browser
           </p>
+          <a
+            href="https://www.producthunt.com/products/localpdf-8?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-localpdf-3a47a065-bb3e-48ef-8eac-64fc9b92e6a8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- Product Hunt hosted badge SVG */}
+            <img
+              alt="LocalPDF - PDF tools that never upload your files | Product Hunt"
+              width={250}
+              height={54}
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1316277&theme=light"
+            />
+          </a>
         </div>
         {footerGroups.map((g) => (
           <div key={g.id}>
