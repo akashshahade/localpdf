@@ -94,14 +94,14 @@ export function ToolWorkspace({ slug }: { slug: string }) {
     return doc;
   }, []);
 
-  const renderThumbs = async (file: InputFile, count: number) => {
+  const renderThumbs = async (file: InputFile, count: number, width = 240) => {
     const token = ++renderToken.current;
     const { renderPage, canvasToBlob } = await import("@/lib/pdf/pdfjs");
     const doc = await viewDoc(file);
     for (let n = 1; n <= count; n++) {
       if (token !== renderToken.current) return;
-      const { canvas } = await renderPage(doc, n, { width: 240 });
-      const thumb: Thumb = { url: keepUrl(URL.createObjectURL(await canvasToBlob(canvas, "image/jpeg", 0.8))), blank: isBlank(canvas), ratio: canvas.width / canvas.height };
+      const { canvas } = await renderPage(doc, n, { width });
+      const thumb: Thumb = { url: keepUrl(URL.createObjectURL(await canvasToBlob(canvas, "image/jpeg", 0.92))), blank: isBlank(canvas), ratio: canvas.width / canvas.height };
       if (token !== renderToken.current) return;
       setThumbs((prev) => {
         const next = [...prev];
@@ -193,7 +193,7 @@ export function ToolWorkspace({ slug }: { slug: string }) {
         }
         const n = needPages ? nextFiles[0].pages : previewThumbCount(tool.slug, nextFiles[0].pages);
         setThumbs(new Array(n));
-        void renderThumbs(nextFiles[0], n);
+        void renderThumbs(nextFiles[0], n, needPreview && !needPages ? 400 : 240);
       }
     }
   };

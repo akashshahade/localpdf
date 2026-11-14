@@ -22,7 +22,7 @@ function Frame({ label, children, className }: { label: string; children: React.
   return (
     <figure className={cn("min-w-0", className)}>
       <figcaption className="mb-1.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase">{label}</figcaption>
-      <div className="overflow-hidden rounded-xl border border-border bg-canvas p-2.5">{children}</div>
+      <div className="grid place-items-center overflow-hidden rounded-xl border border-border bg-canvas p-2">{children}</div>
     </figure>
   );
 }
@@ -36,10 +36,16 @@ function PageFace({
   className?: string;
   style?: React.CSSProperties;
 }) {
-  if (!thumb) return <PageThumb />;
+  if (!thumb) return <PageThumb className="w-[9.5rem] max-w-full" />;
   return (
     // eslint-disable-next-line @next/next/no-img-element -- local object URL rendered from the user's file
-    <img src={thumb.url} alt="" draggable={false} className={cn("block w-full rounded-md bg-white shadow-xs ring-1 ring-border", className)} style={style} />
+    <img
+      src={thumb.url}
+      alt=""
+      draggable={false}
+      className={cn("mx-auto block h-auto max-h-48 w-auto max-w-[9.5rem] rounded-md bg-white shadow-xs ring-1 ring-border", className)}
+      style={style}
+    />
   );
 }
 
@@ -102,7 +108,7 @@ function NupAfter({ thumbs, perSheet }: { thumbs: (Thumb | undefined)[]; perShee
   const layout = NUP[perSheet] ?? NUP[4];
   const cells = Array.from({ length: perSheet }, (_, i) => thumbs[i]);
   return (
-    <div className={cn("overflow-hidden rounded-md bg-white p-1.5 shadow-xs ring-1 ring-border", layout.landscape ? "aspect-[1.414/1]" : "aspect-[1/1.414]")}>
+    <div className={cn("overflow-hidden rounded-md bg-white p-1 shadow-xs ring-1 ring-border", layout.landscape ? "aspect-[1.414/1] w-[13.5rem] max-w-full" : "aspect-[1/1.414] w-[9.5rem] max-w-full")}>
       <div className="grid h-full w-full gap-1" style={{ gridTemplateColumns: `repeat(${layout.cols}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${layout.rows}, minmax(0, 1fr))` }}>
         {cells.map((thumb, i) => (
           <div key={i} className="min-h-0 min-w-0 overflow-hidden rounded-[3px] bg-canvas ring-1 ring-border/70">
@@ -148,12 +154,12 @@ export function EffectPreview({
       : `Page 1 of ${pageCount} · every page is processed`;
 
   return (
-    <section aria-label="Live preview" className="rounded-2xl border border-border bg-background p-3 sm:p-4">
-      <div className="mb-3 flex items-baseline justify-between gap-3">
+    <section aria-label="Live preview" className="rounded-2xl border border-border bg-background p-3">
+      <div className="mb-2 flex items-baseline justify-between gap-3">
         <h2 className="text-[13.5px] font-semibold tracking-[-0.01em]">Preview</h2>
         <p className="tabular text-[12px] text-muted-foreground">{caption}</p>
       </div>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
         <Frame label="Original">
           <PageFace thumb={first} />
         </Frame>
